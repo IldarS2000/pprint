@@ -43,15 +43,13 @@ std::cout << cont << "\n\n";
 output: `{aloha: {4, 5, 6}, hello: {1, 2, 3}}`
 
 ```
-#if _HAS_CXX17
-  {
-    std::tuple<std::string, int, std::vector<int>> cont = {
+  std::tuple<std::string, int, std::vector<int>> cont = {
       "string",
       100,
       {1, 2, 3, 4}
-    };
-    std::cout << cont << "\n\n";
-  }
+  };
+#if _HAS_CXX17
+  std::cout << cont << "\n\n";
 #endif
 ```
 output: `(string, 100, [1, 2, 3, 4])`
