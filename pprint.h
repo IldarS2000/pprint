@@ -18,6 +18,10 @@
 #include <map>
 #include <unordered_map>
 
+#if _HAS_CXX17
+#include <tuple>
+#endif
+
 #include <utility>
 
 
@@ -52,6 +56,11 @@ template <typename Key, typename Val>
 std::ostream& operator<<(std::ostream& out, const std::unordered_map<Key, Val>& cont);
 template <typename Key, typename Val>
 std::ostream& operator<<(std::ostream& out, const std::unordered_multimap<Key, Val>& cont);
+
+#if _HAS_CXX17
+template <typename ...Args>
+std::ostream& operator<<(std::ostream& out, const std::tuple<Args...>& tup);
+#endif
 
 template <typename T1, typename T2>
 std::ostream& operator<<(std::ostream& out, const std::pair<T1, T2>& pair);
@@ -173,6 +182,28 @@ std::ostream& operator<<(std::ostream& out, const std::unordered_multimap<Key, V
   printAssociativeContainer(out, cont);
   return out;
 }
+
+#if _HAS_CXX17
+template<size_t I = 0, typename ...Args>
+void printTuple(std::ostream& out, const std::tuple<Args...>& tup) 
+{
+  if constexpr (I == sizeof...(Args) - 1) {
+    return;
+  }
+  else {
+    out << std::get<I>(tup) << ", ";
+    printTuple<I + 1>(out, tup);
+  }
+}
+template <typename ...Args>
+std::ostream& operator<<(std::ostream& out, const std::tuple<Args...>& tup) 
+{
+  out << '(';
+  printTuple(out, tup);
+  out << std::get<sizeof...(Args) - 1>(tup) << ')';
+  return out;
+}
+#endif
 
 template <typename T1, typename T2>
 std::ostream& operator<<(std::ostream& out, const std::pair<T1, T2>& pair)
