@@ -25,7 +25,7 @@ pretty print works with following classes:
 
 #endif
 
-* utility
+* pair
 
 ---
 
