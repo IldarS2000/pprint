@@ -53,3 +53,25 @@ std::tuple<std::string, int, std::vector<int>> cont = {
 #endif
 ```
 output: `(string, 100, [1, 2, 3, 4])`
+
+for user classes you just need to add friend overload function `operator<<` 
+
+```
+class Dummy
+{
+  friend std::ostream& operator<<(std::ostream& out, const Dummy& dum)
+  {
+    out << "Dummy object";
+    return out;
+  }
+};
+```
+
+```
+std::list<Dummy> cont = {
+  Dummy(),
+  Dummy()
+};
+std::cout << cont << "\n\n";
+```
+output: `[Dummy object, Dummy object]`
