@@ -1,4 +1,9 @@
 # pprint
+
+You just need add `#include "pprint.h"` statement to use pretty printing for most classes of standart library.
+
+--- 
+
 pretty print for following classes:
 * vector
 * list
