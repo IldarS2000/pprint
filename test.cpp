@@ -2,6 +2,16 @@
 #include "pprint.h"
 
 
+class Dummy
+{
+  friend std::ostream& operator<<(std::ostream& out, const Dummy& dum)
+  {
+    out << "Dummy object";
+    return out;
+  }
+};
+
+
 int main()
 {
   {
