@@ -54,7 +54,7 @@ template <typename Key, typename Val>
 std::ostream& operator<<(std::ostream& out, const std::unordered_multimap<Key, Val>& cont);
 
 template <typename T1, typename T2>
-std::ostream& operator<<(std::ostream& out, const std::pair<T1, T2>& cont);
+std::ostream& operator<<(std::ostream& out, const std::pair<T1, T2>& pair);
 
 template <typename T>
 void printNonAssociativeContainer(std::ostream& out, const T& cont,
@@ -92,6 +92,37 @@ std::ostream& operator<<(std::ostream& out, const std::vector<T>& cont)
   printNonAssociativeContainer(out, cont, '[', ']');
   return out;
 }
+template <typename T>
+std::ostream& operator<<(std::ostream& out, const std::list<T>& cont)
+{
+  printNonAssociativeContainer(out, cont, '[', ']');
+  return out;
+}
+template <typename T>
+std::ostream& operator<<(std::ostream& out, const std::deque<T>& cont)
+{
+  printNonAssociativeContainer(out, cont, '[', ']');
+  return out;
+}
+template <typename T>
+std::ostream& operator<<(std::ostream& out, const std::forward_list<T>& cont)
+{
+  printNonAssociativeContainer(out, cont, '[', ']');
+  return out;
+}
+
+template <typename T>
+std::ostream& operator<<(std::ostream& out, const std::stack<T>& cont)
+{
+  printNonAssociativeContainer(out, cont, '[', ']');
+  return out;
+}
+template <typename T>
+std::ostream& operator<<(std::ostream& out, const std::queue<T>& cont)
+{
+  printNonAssociativeContainer(out, cont, '[', ']');
+  return out;
+}
 
 template <typename T>
 std::ostream& operator<<(std::ostream& out, const std::set<T>& cont)
@@ -99,8 +130,55 @@ std::ostream& operator<<(std::ostream& out, const std::set<T>& cont)
   printNonAssociativeContainer(out, cont, '{', '}');
   return out;
 }
+template <typename T>
+std::ostream& operator<<(std::ostream& out, const std::multiset<T>& cont)
+{
+  printNonAssociativeContainer(out, cont, '{', '}');
+  return out;
+}
+template <typename T>
+std::ostream& operator<<(std::ostream& out, const std::unordered_set<T>& cont)
+{
+  printNonAssociativeContainer(out, cont, '{', '}');
+  return out;
+}
+template <typename T>
+std::ostream& operator<<(std::ostream& out, const std::unordered_multiset<T>& cont)
+{
+  printNonAssociativeContainer(out, cont, '{', '}');
+  return out;
+}
 
+template <typename Key, typename Val>
+std::ostream& operator<<(std::ostream& out, const std::map<Key, Val>& cont)
+{
+  printAssociativeContainer(out, cont);
+  return out;
+}
+template <typename Key, typename Val>
+std::ostream& operator<<(std::ostream& out, const std::multimap<Key, Val>& cont)
+{
+  printAssociativeContainer(out, cont);
+  return out;
+}
+template <typename Key, typename Val>
+std::ostream& operator<<(std::ostream& out, const std::unordered_map<Key, Val>& cont)
+{
+  printAssociativeContainer(out, cont);
+  return out;
+}
+template <typename Key, typename Val>
+std::ostream& operator<<(std::ostream& out, const std::unordered_multimap<Key, Val>& cont)
+{
+  printAssociativeContainer(out, cont);
+  return out;
+}
 
+template <typename T1, typename T2>
+std::ostream& operator<<(std::ostream& out, const std::pair<T1, T2>& pair)
+{
+  out << '{' << pair.first << ", " << pair.second << '}';
+}
 
 
 #endif // !PPRINT_H
