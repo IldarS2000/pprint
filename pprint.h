@@ -66,7 +66,7 @@ template <typename T1, typename T2>
 std::ostream& operator<<(std::ostream& out, const std::pair<T1, T2>& pair);
 
 template <typename T>
-void printNonAssociativeContainer(std::ostream& out, const T& cont,
+static void printNonAssociativeContainer(std::ostream& out, const T& cont,
   const char lbracket, const char rbracket, const char delimeter = ',')
 {
   out << lbracket;
@@ -81,7 +81,7 @@ void printNonAssociativeContainer(std::ostream& out, const T& cont,
 }
 
 template <typename T>
-void printAssociativeContainer(std::ostream& out, const T& cont,
+static void printAssociativeContainer(std::ostream& out, const T& cont,
   const char lbracket = '{', const char rbracket = '}', const char delimeter = ',')
 {
   out << lbracket;
@@ -185,7 +185,7 @@ std::ostream& operator<<(std::ostream& out, const std::unordered_multimap<Key, V
 
 #if _HAS_CXX17
 template<size_t I = 0, typename ...Args>
-void printTuple(std::ostream& out, const std::tuple<Args...>& tup) 
+static void printTuple(std::ostream& out, const std::tuple<Args...>& tup)
 {
   if constexpr (I == sizeof...(Args) - 1) {
     return;
