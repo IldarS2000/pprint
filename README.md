@@ -4,7 +4,7 @@ You just need add `#include "pprint.h"` statement to use pretty printing for mos
 
 --- 
 
-pretty print for following classes:
+pretty print works with following classes:
 * vector
 * list
 * deque
