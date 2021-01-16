@@ -54,7 +54,7 @@ std::tuple<std::string, int, std::vector<int>> cont = {
 ```
 output: `(string, 100, [1, 2, 3, 4])`
 
-for user classes you just need to add friend overload function `operator<<` 
+For user classes you just need to add friend overload function `operator<<` 
 
 ```
 class Dummy
