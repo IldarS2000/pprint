@@ -26,3 +26,11 @@ pretty print works with following classes:
 #endif
 
 * utility
+
+---
+
+## Examples:
+```
+std::vector<std::set<int>> cont = { {1, 2, 3}, {4, 5, 6} };
+std::cout << cont << "\n\n";
+```
