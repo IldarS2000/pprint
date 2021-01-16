@@ -40,5 +40,13 @@ int main()
   }
 #endif
 
+  {
+    std::list<Dummy> cont = {
+      Dummy(),
+      Dummy()
+    };
+    std::cout << cont << "\n\n";
+  }
+
   return 0;
 }
