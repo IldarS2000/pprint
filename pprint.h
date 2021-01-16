@@ -82,7 +82,7 @@ void printAssociativeContainer(std::ostream& out, const T& cont,
   for (; begin != preend; ++begin) {
     out << begin->first << ": " << begin->second << delimeter << ' ';
   }
-  out << *preend;
+  out << preend->first << ": " << preend->second;
   out << rbracket;
 }
 
@@ -178,6 +178,7 @@ template <typename T1, typename T2>
 std::ostream& operator<<(std::ostream& out, const std::pair<T1, T2>& pair)
 {
   out << '{' << pair.first << ", " << pair.second << '}';
+  return out;
 }
 
 
