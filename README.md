@@ -7,9 +7,13 @@ pretty print for following classes:
 * stack
 * queue
 * set
+* multiset
 * unordered_set
+* unordered_multiset
 * map
+* multimap
 * unordered_map
+* unordered_multimap
 
 #if _HAS_CXX17
 * tuple
